@@ -10,7 +10,7 @@ void setup() {
  stroke(0);
  stroke(1.5);
  
- lifeAverageRadius = width/100;
+ lifeAverageRadius = width/200;
  
  minLifeRadius = lifeAverageRadius * .3;
   
@@ -198,7 +198,7 @@ class Life {
        newX = x + cos(angle)*(newR + r);
        newY = y + sin(angle)*(newR + r);
        
-       if(canDrawLifeAtLocation(newX, newY, newR)) {
+       if(canDrawLifeAtLocation(newX, newY, newR) && newR > minLifeRadius) {
          canFit = true;
          break;
        }
@@ -218,13 +218,13 @@ class Life {
        newX = x + cos(angle)*(newR + r);
        newY = y + sin(angle)*(newR + r);
        
-       if(canDrawLifeAtLocation(newX, newY, newR)) {
+       if(canDrawLifeAtLocation(newX, newY, newR) && newR > minLifeRadius) {
          canFit = true;
          break;
        }
        
        randomStartingDegree++;
-   }
+     }
    }
    
    //STILL false.  You're not gonna make it dude
